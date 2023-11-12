@@ -84,7 +84,7 @@ describe("When ctrl + h is pressed", () => {
 
   it('checks that the alert is "Logging you out"', () => {
     const wrapper = mount(<App />);
-    const spy = jest.spyOn(window, "alert");
+    const spy = jest.spyOn(window, "alert").mockImplementation(() => {});
     const event = new KeyboardEvent("keydown", { ctrlKey: true, key: "h" });
     document.dispatchEvent(event);
 
